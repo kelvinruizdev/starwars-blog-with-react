@@ -8,8 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			urlBase: "https://www.swapi.tech/api",
 
 			people: /*JSON.parse(localStorage.getItem("people")) ||*/[],
-			vehicles: JSON.parse(localStorage.getItem("vehicles")) || [],
-			planets: JSON.parse(localStorage.getItem("planets")) || [],
+			vehicles: /*JSON.parse(localStorage.getItem("vehicles")) ||*/[],
+			planets: /*JSON.parse(localStorage.getItem("planets")) ||*/[],
 
 			favorites: /*JSON.parse(localStorage.getItem("favorites")) ||*/[]
 		},

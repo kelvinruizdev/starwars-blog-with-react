@@ -6,7 +6,7 @@ import { Heart } from "react-bootstrap-icons"
 import "../../styles/index.css"
 
 
-export const CardItem = ({ key, item, type }) => {
+export const CardItem = ({ item, type }) => {
 
     const { actions } = useContext(Context)
     // const { people, planets, vehicles } = store
@@ -16,6 +16,10 @@ export const CardItem = ({ key, item, type }) => {
     const { properties } = item
     const { uid } = item
 
+    function handleAddFavorite(item) {
+
+    }
+
     return (
         <>
             {
@@ -23,7 +27,9 @@ export const CardItem = ({ key, item, type }) => {
                 &&
                 <div className="card card-size lead" >
 
-                    <img src="" className="card-img-top" alt="" />
+                    <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`}
+                        className="card-img-top img-size-card"
+                        alt="" />
                     <div className="card-body">
                         <h4 className="card-title mb-4"><strong> {properties.name} </strong></h4>
                         <p className="card-text">
@@ -35,15 +41,14 @@ export const CardItem = ({ key, item, type }) => {
                         <p className="card-text">
                             <strong>Eye color:</strong> {properties.eye_color}
                         </p>
-                        <Link to={`detail/${type}/${uid}`}>
-                            < button className="btn btn-outline-primary">Lean more!</button>
-                        </Link>
-                        < button
-                            className="btn btn-outline-warning"
-                            onClick={() => { actions.addFavorite(item) }}
-                        >
-                            <Heart />
-                        </button>
+                        <div className="d-flex justify-content-between">
+                            <Link to={`detail/${type}/${uid}`}>
+                                < button className="btn btn-outline-primary">Lean more!</button>
+                            </Link>
+                            < button className="btn btn-outline-warning"
+                                onClick={() => actions.addFavorite(item)}
+                            ><Heart /></button>
+                        </div>
                     </div>
                 </div >
             }
@@ -53,7 +58,8 @@ export const CardItem = ({ key, item, type }) => {
                 &&
                 <div className="card card-size lead" >
 
-                    <img src="" className="card-img-top" alt="" />
+                    <img src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`}
+                        className="card-img-top img-size-card" alt="" />
                     <div className="card-body">
                         <h4 className="card-title mb-4"><strong> {properties.name} </strong></h4>
                         <p className="card-text">
@@ -62,10 +68,45 @@ export const CardItem = ({ key, item, type }) => {
                         <p className="card-text">
                             <strong>Terrain:</strong> {properties.terrain}
                         </p>
-                        <Link to={`detail/${type}/${uid}`}>
-                            < button className="btn btn-outline-primary">Lean more!</button>
-                        </Link>
-                        < button className="btn btn-outline-warning"><Heart /></button>
+                        <div className="d-flex justify-content-between">
+                            <Link to={`detail/${type}/${uid}`}>
+                                < button className="btn btn-outline-primary">Lean more!</button>
+                            </Link>
+                            < button className="btn btn-outline-warning"
+                                onClick={() => actions.addFavorite(item)}
+                            >
+                                <Heart />
+                            </button>
+                        </div>
+                    </div>
+                </div >
+            }
+
+            {
+                type == "vehicle"
+                &&
+                <div className="card card-size lead" >
+
+                    <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
+                        className="card-img-top img-size-card" alt="" />
+                    <div className="card-body">
+                        <h4 className="card-title mb-4"><strong> {properties.name} </strong></h4>
+                        <p className="card-text">
+                            <strong>Model:</strong> {properties.model}
+                        </p>
+                        <p className="card-text">
+                            <strong>Manufacturer:</strong> {properties.manufacturer}
+                        </p>
+                        <div className="d-flex justify-content-between">
+                            <Link to={`detail/${type}/${uid}`}>
+                                < button className="btn btn-outline-primary">Lean more!</button>
+                            </Link>
+                            < button className="btn btn-outline-warning"
+                                onClick={() => actions.addFavorite(item)}
+                            >
+                                <Heart />
+                            </button>
+                        </div>
                     </div>
                 </div >
             }
@@ -73,19 +114,7 @@ export const CardItem = ({ key, item, type }) => {
     )
 }
 
-/*
-"height": "172",
-      "mass": "77",
-      "hair_color": "blond",
-      "skin_color": "fair",
-      "eye_color": "blue",
-      "birth_year": "19BBY",
-      "gender": "male",
-      "created": "2023-05-26T00:47:31.994Z",
-      "edited": "2023-05-26T00:47:31.994Z",
-      "name": "Luke Skywalker",
-      "homeworld": "https://www.swapi.tech/api/planets/1",
-      "url": "https://www.swapi.tech/api/people/1"*/
+
 
 
 

@@ -9,8 +9,6 @@ export const Home = () => {
 
 	const { people, vehicles, planets } = store
 
-	//console.log(people)
-
 	return (
 		<div className="container">
 			<h1 className="text-danger">Characters</h1>
@@ -19,7 +17,7 @@ export const Home = () => {
 					people.map((item, index) => {
 						return (
 							<div className="w-100">
-								< CardItem className="" key={index} item={item} type={"person"} />
+								< CardItem className="me-3" key={index} item={item} type={"person"} />
 							</div>
 
 						)
@@ -35,13 +33,13 @@ export const Home = () => {
 						//console.log(item)
 						return (
 							<div className="w-100">
-								< CardItem className="" key={index} item={item} type={"planet"} />
+								< CardItem className="me-3" key={index} item={item} type={"planet"} />
 							</div>
 						)
 					})
 				}
 			</div>
-			{/*
+
 			<h1 className="text-danger">Vehicles</h1>
 			<div className="d-flex justify-content-between overflow-auto">
 				{
@@ -49,12 +47,12 @@ export const Home = () => {
 						//console.log(item)
 						return (
 							<div className="w-100">
-								< CardItem className="" key={index} item={item} type={"vehicle"}/>
+								< CardItem className="me-3" key={index} item={item} type={"vehicle"} />
 							</div>
 						)
 					})
 				}
-			</div>*/}
+			</div>
 		</div >
 	)
 
