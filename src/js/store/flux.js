@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getAllItems: () => {
 
 				let store = getStore();
-				const endpoints = ['people'/*, 'planets', 'vehicles'*/]
+				const endpoints = ['people', 'planets', 'vehicles']
 
 				endpoints.forEach(async (endpoint) => {
 					const url = `${store.urlBase}/${endpoint}`;

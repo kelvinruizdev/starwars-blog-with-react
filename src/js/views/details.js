@@ -7,7 +7,7 @@ import "../../styles/home.css";
 
 export const Details = () => {
     const { store, actions } = useContext(Context)
-    const { people, planets } = store
+    const { people, planets, vehicles } = store
     const params = useParams()
 
     return (
@@ -48,7 +48,7 @@ export const Details = () => {
                                         <p className="d-block">{properties.height}</p>
                                     </h5>
                                     <h5 className="col">
-                                        <strong className="d-block">Skin olor</strong>
+                                        <strong className="d-block">Skin color</strong>
                                         <p className="d-block">{properties.skin_color}</p>
                                     </h5>
                                     <h5 className="col">
@@ -68,7 +68,7 @@ export const Details = () => {
                     const { properties } = item
                     if (item.uid == params.uid) {
                         return (
-                            <div key={index}>
+                            <div className="container" key={index}>
                                 <div className="row text-center lead">
                                     <img src={`https://starwars-visualguide.com/assets/img/planets/${params.uid}.jpg`}
                                         className="col img-size-detail" />
@@ -110,13 +110,13 @@ export const Details = () => {
                 })
             }
             {
-                params.type == "vehicles"
+                params.type == "vehicle"
                 &&
                 vehicles.map((item, index) => {
                     const { properties } = item
                     if (item.uid == params.uid) {
                         return (
-                            <>
+                            <div className="container" key={index}>
                                 <div className="row text-center lead">
                                     <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.uid}.jpg`}
                                         className="col img-size-detail" />
@@ -126,7 +126,7 @@ export const Details = () => {
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className="border-top border-danger text-danger row">
                                     <h5 className="col">
                                         <strong className="d-block">Model</strong>
                                         <p className="d-block">{properties.model}</p>
@@ -152,7 +152,7 @@ export const Details = () => {
                                         <p className="d-block">{properties.max_atmosphering_speed}</p>
                                     </h5>
                                 </div>
-                            </>
+                            </div>
                         )
                     }
                 })

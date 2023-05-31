@@ -33,7 +33,7 @@ export const CardItem = ({ item, type }) => {
                     <div className="card-body">
                         <h4 className="card-title mb-4"><strong> {properties.name} </strong></h4>
                         <p className="card-text">
-                            <strong>Gender color:</strong> {properties.gender}
+                            <strong>Gender:</strong> {properties.gender}
                         </p>
                         <p className="card-text">
                             <strong>Hair color:</strong> {properties.hair_color}
